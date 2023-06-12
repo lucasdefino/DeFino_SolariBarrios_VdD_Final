@@ -1,7 +1,7 @@
 const width = 1300
 const height = 700
 const margin = 100
-
+//hola
 // Puesto: escala categorica
 const color = d3.scaleOrdinal()
 .domain(['1', '2', '3', '4'])
