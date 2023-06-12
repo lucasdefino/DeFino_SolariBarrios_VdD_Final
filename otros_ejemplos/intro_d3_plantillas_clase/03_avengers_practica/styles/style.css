@@ -1,0 +1,7 @@
+#chart_container {
+  max-width: 1200px;
+  margin: auto;
+}
+#chart_title {
+  text-align: center
+}

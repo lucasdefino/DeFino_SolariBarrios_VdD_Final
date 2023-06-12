@@ -1,0 +1,198 @@
+[
+  {
+    "nombre": "IRON MAN",
+    "vivo": false,
+    "minutos": 358,
+    "recaudacion": 12.5,
+    "imagen": "IronMan.gif"
+  },
+  {
+    "nombre": "CAPTAIN AMERICA",
+    "vivo": true,
+    "minutos": 248,
+    "recaudacion": 12.5,
+    "imagen": "CaptainAmerica.png"
+  },
+  {
+    "nombre": "THOR",
+    "vivo": true,
+    "minutos": 205,
+    "recaudacion": 10.4,
+    "imagen": "Thor.png"
+  },
+  {
+    "nombre": "THE HULK",
+    "vivo": true,
+    "minutos": 142,
+    "recaudacion": 11.2,
+    "imagen": "TheHulk.png"
+  },
+  {
+    "nombre": "BLACK WIDOW",
+    "vivo": false,
+    "minutos": 113,
+    "recaudacion": 12.2,
+    "imagen": "BlackWidow.gif"
+  },
+  {
+    "nombre": "ANT-MAN",
+    "vivo": true,
+    "minutos": 113,
+    "recaudacion": 5.1,
+    "imagen": "Ant-Man.png"
+  },
+  {
+    "nombre": "STAR-LORD",
+    "vivo": true,
+    "minutos": 96,
+    "recaudacion": 6.5,
+    "imagen": "Star-Lord.gif"
+  },
+  {
+    "nombre": "SPIDER-MAN",
+    "vivo": true,
+    "minutos": 95,
+    "recaudacion": 6.9,
+    "imagen": "Spider-Man.gif"
+  },
+  {
+    "nombre": "DOCTOR STRANGE",
+    "vivo": true,
+    "minutos": 89,
+    "recaudacion": 6.4,
+    "imagen": "DoctorStrange.gif"
+  },
+  {
+    "nombre": "GAMORA",
+    "vivo": true,
+    "minutos": 80,
+    "recaudacion": 6.5,
+    "imagen": "Gamora.gif"
+  },
+  {
+    "nombre": "LOKI",
+    "vivo": false,
+    "minutos": 79,
+    "recaudacion": 8.3,
+    "imagen": "Loki.gif"
+  },
+  {
+    "nombre": "CAPTAIN MARVEL",
+    "vivo": true,
+    "minutos": 72,
+    "recaudacion": 3.9,
+    "imagen": "CaptainMarvel.png"
+  },
+  {
+    "nombre": "PEPPER POTTS",
+    "vivo": true,
+    "minutos": 70,
+    "recaudacion": 9.7,
+    "imagen": "PepperPotts.png"
+  },
+  {
+    "nombre": "NICK FURY",
+    "vivo": true,
+    "minutos": 70,
+    "recaudacion": 11.3,
+    "imagen": "NickFury.gif"
+  },
+  {
+    "nombre": "BLACK PANTHER",
+    "vivo": true,
+    "minutos": 65,
+    "recaudacion": 7.3,
+    "imagen": "BlackPanther.gif"
+  },
+  {
+    "nombre": "WAR MACHINE",
+    "vivo": true,
+    "minutos": 58,
+    "recaudacion": 10.9,
+    "imagen": "WarMachine.png"
+  },
+  {
+    "nombre": "ROCKET",
+    "vivo": true,
+    "minutos": 54,
+    "recaudacion": 6.5,
+    "imagen": "Rocket.png"
+  },
+  {
+    "nombre": "HAWKEYE",
+    "vivo": true,
+    "minutos": 52,
+    "recaudacion": 7.3,
+    "imagen": "Hawkeye.png"
+  },
+  {
+    "nombre": "WINTER SOLDIER",
+    "vivo": true,
+    "minutos": 49,
+    "recaudacion": 8.9,
+    "imagen": "WinterSoldier.gif"
+  },
+  {
+    "nombre": "THANOS",
+    "vivo": false,
+    "minutos": 46,
+    "recaudacion": 8.5,
+    "imagen": "Thanos.gif"
+  },
+  {
+    "nombre": "DRAX",
+    "vivo": true,
+    "minutos": 41,
+    "recaudacion": 6.5,
+    "imagen": "Drax.gif"
+  },
+  {
+    "nombre": "GROOT",
+    "vivo": true,
+    "minutos": 35,
+    "recaudacion": 6.5,
+    "imagen": "Groot.gif"
+  },
+  {
+    "nombre": "FALCON",
+    "vivo": true,
+    "minutos": 35,
+    "recaudacion": 8.6,
+    "imagen": "Falcon.gif"
+  },
+  {
+    "nombre": "SCARLET WITCH",
+    "vivo": true,
+    "minutos": 34,
+    "recaudacion": 8.1,
+    "imagen": "ScarletWitch.gif"
+  },
+  {
+    "nombre": "NEBULA",
+    "vivo": true,
+    "minutos": 34,
+    "recaudacion": 6.5,
+    "imagen": "Nebula.png"
+  },
+  {
+    "nombre": "VISION",
+    "vivo": false,
+    "minutos": 24,
+    "recaudacion": 4.6,
+    "imagen": "Vision.gif"
+  },
+  {
+    "nombre": "HEIMDALL",
+    "vivo": false,
+    "minutos": 14,
+    "recaudacion": 5.4,
+    "imagen": "Heimdall.gif"
+  },
+  {
+    "nombre": "MARIA HILL",
+    "vivo": true,
+    "minutos": 13,
+    "recaudacion": 8.5,
+    "imagen": "MariaHill.gif"
+  }
+]
