@@ -1,7 +1,6 @@
 const width = 1300
 const height = 700
 const margin = 100
-const audio = new Audio('https://p.scdn.co/mp3-preview/5bbdd15509b10d1b62cf5aa43500255754e2096b?cid=0b297fa8a249464ba34f5861d4140e58');
 
 
 
@@ -21,10 +20,7 @@ d3.csv('./data/top10tracksarg.csv', d3.autoType).then(data => {
 
   const nodos = data
 
-  /*
-  // Dominios escalas
-  opacidad.domain(d3.extent(nodos, d => d.edad))
-  */
+  
   radio.domain(d3.extent(nodos, d => +d.popularidad))
   
 
@@ -60,8 +56,10 @@ d3.csv('./data/top10tracksarg.csv', d3.autoType).then(data => {
           d3.select(this)
           .select('text').select('textPath').transition().duration(500).style('fill', (d, i) => color(d.danceability));
 
-          audio.play();
-          
+          var audio = new Audio('https://p.scdn.co/mp3-preview/5bbdd15509b10d1b62cf5aa43500255754e2096b?cid=0b297fa8a249464ba34f5861d4140e58');
+
+          audio.play()
+
           // Get current event info
           console.log(d3.event);
           
@@ -69,7 +67,8 @@ d3.csv('./data/top10tracksarg.csv', d3.autoType).then(data => {
           console.log(d3.mouse(this));
       })
       .on("mouseout", function(){
-          audio.pause();
+          
+          
       //     d3.select(this)
       //     .select('circle').style('stroke', '#00FFFF');
           
@@ -100,7 +99,7 @@ function draw(chart, nodos) {
     .attr('stroke-width','2')
     //.style('fill-opacity', d => opacidad(d.edad))
 
-    tracks
+  tracks
     .append('circle')
     .attr('r', d => radio(+d.popularidad)/8)
     .style('stroke', '#00FFFF')
@@ -137,7 +136,10 @@ function draw(chart, nodos) {
       const size = radio(+d.popularidad) / 4
       return size + 'px'
     })
-    
+
+  tracks
+    .append('audio')
+    .attr('src', d => d.preview)
   
 }
 
