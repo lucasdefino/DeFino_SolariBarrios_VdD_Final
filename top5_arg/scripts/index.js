@@ -63,7 +63,14 @@ function draw(chart, nodos) {
   
     tracks.select('svg')
       .append('polygon')
-      .attr('points', "90,90 0,0 90,0")
+      // CUADRADO 
+      //.attr('points', "90,90 90,0 0,0 0,90 ")
+      // TRIANGULO 
+      //.attr('points', "0,90 90,90 45,0")
+      // PENTAGONO 
+      //.attr('points', "0,38 20,90 75,90 90,38 47,0")
+      // HEXAGONO 
+      .attr('points', "8,20 8,70 47,90 82,70 82,20 45,0")
       .attr('r', d => radio(+d.popularidad))
       .style('stroke', (d, i) => color(d.danceability))
       .style('fill', 'transparent')

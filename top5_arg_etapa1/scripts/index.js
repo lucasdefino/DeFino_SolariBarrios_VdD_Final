@@ -50,12 +50,12 @@ d3.csv('./data/top10tracksarg.csv', d3.autoType).then(data => {
     draw(chart, nodos)
 
     d3.selectAll(".tracks")
-      .on("mouseover", function(){
+      .on("click", function(){
           d3.select(this)
           .selectAll('circle').transition().duration(500).style('stroke', (d, i) => color(d.danceability));
 
           d3.select(this)
-          .select('text').transition().duration(500).style('fill', (d, i) => color(d.danceability));
+          .select('text').select('textPath').transition().duration(500).style('fill', (d, i) => color(d.danceability));
 
           // Get current event info
           console.log(d3.event);
@@ -91,26 +91,44 @@ function draw(chart, nodos) {
     .attr('stroke-width','2')
     //.style('fill-opacity', d => opacidad(d.edad))
 
-
-  tracks
+    tracks
     .append('circle')
-    .attr('r', d => radio(+d.popularidad) / 10)
+    .attr('r', d => radio(+d.popularidad)/8)
     .style('stroke', '#00FFFF')
     .style('fill', 'transparent')
-    .attr('stroke-width','1')
+    .attr('stroke-width','2')
     //.style('fill-opacity', d => opacidad(d.edad))
+
+
+  tracks
+    .append("path")
+    .attr("id", "wavy") //Unique id of the path
+    .attr("d", d => {
+      const diametro = radio(+d.popularidad)*2
+      const size = radio(+d.popularidad)
+      return "M" + (-size+10) + ',0 A' + (size/4) + ',' + (size/4) + " 0 0,0 " + (size-10) + ",0"
+    })
+    //.attr("d", "M-80,0 A50,50 0 0,0 80,0") //SVG path
+    //.attr("d", "M-30,0 A5,5 0 0,0 30,0")
+    .style("fill", "none")
+    .style("stroke", "#00FFFF");
+
   
   tracks
     .append('text')
-    .text(d => d.tema)
-    .attr('y', d => radio(+d.popularidad) / 9)
+    .append("textPath")
+    .attr("xlink:href", "#wavy")
     .attr('text-anchor', 'middle')
+    .attr("startOffset", "50%")
+    .text(d => d.tema)
+    //.attr('y', d => radio(+d.popularidad) / 10)
     .style('fill','#00FFFF')
     .attr('font-family','Poppins')
     .attr('font-size', d => {
       const size = radio(+d.popularidad) / 4
       return size + 'px'
     })
+    
   
 }
 
