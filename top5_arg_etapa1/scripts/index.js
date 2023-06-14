@@ -1,6 +1,10 @@
 const width = 1300
 const height = 700
 const margin = 100
+const audio = new Audio('https://p.scdn.co/mp3-preview/5bbdd15509b10d1b62cf5aa43500255754e2096b?cid=0b297fa8a249464ba34f5861d4140e58');
+
+
+
 //hola
 // Puesto: escala categorica
 const color = d3.scaleOrdinal()
@@ -48,7 +52,6 @@ d3.csv('./data/top10tracksarg.csv', d3.autoType).then(data => {
     
     /* Renderiza los círculos */
     draw(chart, nodos)
-
     d3.selectAll(".tracks")
       .on("click", function(){
           d3.select(this)
@@ -57,19 +60,25 @@ d3.csv('./data/top10tracksarg.csv', d3.autoType).then(data => {
           d3.select(this)
           .select('text').select('textPath').transition().duration(500).style('fill', (d, i) => color(d.danceability));
 
+          audio.play();
+          
           // Get current event info
           console.log(d3.event);
           
           // Get x & y co-ordinates
           console.log(d3.mouse(this));
       })
-      // .on("mouseout", function(){
+      .on("mouseout", function(){
+          audio.pause();
       //     d3.select(this)
       //     .select('circle').style('stroke', '#00FFFF');
           
       //     d3.select(this)
       //     .select('text').style('fill', '#00FFFF');
-      // });
+      })
+      
+      
+          
 
       
 
@@ -121,7 +130,7 @@ function draw(chart, nodos) {
     .attr('text-anchor', 'middle')
     .attr("startOffset", "50%")
     .text(d => d.tema)
-    //.attr('y', d => radio(+d.popularidad) / 10)
+    .attr('dy', d => (radio(+d.popularidad))*10)
     .style('fill','#00FFFF')
     .attr('font-family','Poppins')
     .attr('font-size', d => {
