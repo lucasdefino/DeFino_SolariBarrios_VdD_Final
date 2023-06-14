@@ -44,11 +44,12 @@ d3.csv('./data/top10tracksarg.csv', d3.autoType).then(data => {
         .iterations(5),
     )
     /* Registra el observer */
-    sim.on('tick', redraw)
+    sim.on('tick', redraw);
     
     /* Renderiza los círculos */
-    draw(chart, nodos)
+    draw(chart, nodos);
   })
+
 
 function draw(chart, nodos) {
   const tracks = chart
@@ -58,13 +59,16 @@ function draw(chart, nodos) {
     .attr('class', 'tracks')
     .attr('transform', d => `translate(${[d.x, d.y]})`)
 
-  tracks
-    .append('circle')
-    .attr('r', d => radio(+d.popularidad))
-    .style('stroke', (d, i) => color(d.danceability))
-    .style('fill', 'transparent')
-    .attr('stroke-width','2')
-    //.style('fill-opacity', d => opacidad(d.edad))
+    tracks.append('svg').attr('width', 90).attr('height', 90).attr('viewBox', '0 0 90 90')
+  
+    tracks.select('svg')
+      .append('polygon')
+      .attr('points', "90,90 0,0 90,0")
+      .attr('r', d => radio(+d.popularidad))
+      .style('stroke', (d, i) => color(d.danceability))
+      .style('fill', 'transparent')
+      .attr('stroke-width','2')
+      //.style('fill-opacity', d => opacidad(d.edad))
   
   tracks
     .append('text')

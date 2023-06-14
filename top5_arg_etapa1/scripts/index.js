@@ -48,6 +48,31 @@ d3.csv('./data/top10tracksarg.csv', d3.autoType).then(data => {
     
     /* Renderiza los círculos */
     draw(chart, nodos)
+
+    d3.selectAll(".tracks")
+      .on("mouseover", function(){
+          d3.select(this)
+          .selectAll('circle').transition().duration(500).style('stroke', (d, i) => color(d.danceability));
+
+          d3.select(this)
+          .select('text').transition().duration(500).style('fill', (d, i) => color(d.danceability));
+
+          // Get current event info
+          console.log(d3.event);
+          
+          // Get x & y co-ordinates
+          console.log(d3.mouse(this));
+      })
+      // .on("mouseout", function(){
+      //     d3.select(this)
+      //     .select('circle').style('stroke', '#00FFFF');
+          
+      //     d3.select(this)
+      //     .select('text').style('fill', '#00FFFF');
+      // });
+
+      
+
   })
 
 function draw(chart, nodos) {
@@ -64,6 +89,15 @@ function draw(chart, nodos) {
     .style('stroke', '#00FFFF')
     .style('fill', 'transparent')
     .attr('stroke-width','2')
+    //.style('fill-opacity', d => opacidad(d.edad))
+
+
+  tracks
+    .append('circle')
+    .attr('r', d => radio(+d.popularidad) / 10)
+    .style('stroke', '#00FFFF')
+    .style('fill', 'transparent')
+    .attr('stroke-width','1')
     //.style('fill-opacity', d => opacidad(d.edad))
   
   tracks
