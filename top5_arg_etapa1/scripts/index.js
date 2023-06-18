@@ -107,35 +107,51 @@ function draw(chart, nodos) {
     .attr('stroke-width','2')
     //.style('fill-opacity', d => opacidad(d.edad))
 
-
   tracks
-    .append("path")
-    .attr("id", "wavy") //Unique id of the path
-    .attr("d", d => {
-      const diametro = radio(+d.popularidad)*2
-      const size = radio(+d.popularidad)
-      return "M" + (-size+10) + ',0 A' + (size/4) + ',' + (size/4) + " 0 0,0 " + (size-10) + ",0"
-    })
-    //.attr("d", "M-80,0 A50,50 0 0,0 80,0") //SVG path
-    //.attr("d", "M-30,0 A5,5 0 0,0 30,0")
-    .style("fill", "none")
-    .style("stroke", "#00FFFF");
+    .append('svg')
+      //.attr('viewBox','20 0 2000 1100')
+      .append("path")
+        .attr("id", "path")
+        .attr("d","M -80 0 A 80 80 0 0 0 80 0")
+        .style("fill", "transparent")
+        .style("stroke", "#00FFFF");
+
+  tracks.selectAll('svg')
+    .append('text')
+      .attr('text-anchor', 'middle')
+      .append("textPath")
+        .text(d => d.tema)
+        .attr("xlink:href", "#path")
+        .attr("startOffset", "50%")
+        .attr('font-family','Poppins')
+        .attr('font-size', d => {const size = radio(+d.popularidad) / 4; return size + 'px'})
+        .style('fill','#00FFFF');
+
+
+
+
+  // tracks
+    
+    
+  //   .attr("d", d => {
+  //     const diametro = radio(+d.popularidad)*2
+  //     const size = radio(+d.popularidad)
+  //     return "M" + (-size+10) + ',0 A' + (size/4) + ',' + (size/4) + " 0 0,0 " + (size-10) + ",0"
+  //   })
+  //   //.attr("d", "M-30,0 A5,5 0 0,0 30,0")
+
 
   
-  tracks
-    .append('text')
-    .append("textPath")
-    .attr("xlink:href", "#wavy")
-    .attr('text-anchor', 'middle')
-    .attr("startOffset", "50%")
-    .text(d => d.tema)
-    .attr('dy', d => (radio(+d.popularidad))*10)
-    .style('fill','#00FFFF')
-    .attr('font-family','Poppins')
-    .attr('font-size', d => {
-      const size = radio(+d.popularidad) / 4
-      return size + 'px'
-    })
+  // tracks
+    
+    
+  //   .append("textPath")
+  //   .attr("xlink:href", "#wavy")
+  //   .attr("startOffset", "50%")
+  //   .text(d => d.tema)
+  //   .style('fill','#00FFFF')
+  //   .attr('font-family','Poppins')
+  //   .attr('font-size', d => {const size = radio(+d.popularidad) / 4; return size + 'px'})
 
   tracks
     .append('audio')
