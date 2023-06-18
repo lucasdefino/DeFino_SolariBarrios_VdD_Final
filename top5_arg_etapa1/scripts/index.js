@@ -1,6 +1,7 @@
 const width = 1300
 const height = 700
 const margin = 100
+var audio = null
 
 
 
@@ -21,10 +22,10 @@ d3.csv('./data/top10tracksarg.csv', d3.autoType).then(data => {
   const nodos = data
 
   
-  radio.domain(d3.extent(nodos, d => +d.popularidad))
+  radio.domain(d3.extent(nodos, d => d.popularidad))
   
 
-  /* DOM (cajiat) */
+  /* DOM (cajita) */
   const svg = d3.select('body').append('svg').attr('width', width).attr('height', height)
   const chart = svg
     .append('g')
@@ -39,7 +40,7 @@ d3.csv('./data/top10tracksarg.csv', d3.autoType).then(data => {
     .force(
       'collide',
       d3
-        .forceCollide(d => radio(+d.popularidad) + 5)
+        .forceCollide(d => radio(d.popularidad) + 5)
         .strength(2)
         .iterations(5),
     )
@@ -48,39 +49,9 @@ d3.csv('./data/top10tracksarg.csv', d3.autoType).then(data => {
     
     /* Renderiza los círculos */
     draw(chart, nodos)
+
     d3.selectAll(".tracks")
-      .on("click", function(){
-          d3.select(this)
-          .selectAll('circle').transition().duration(500).style('stroke', (d, i) => color(d.danceability));
-
-          d3.select(this)
-          .select('text').select('textPath').transition().duration(500).style('fill', (d, i) => color(d.danceability));
-
-          var audio = new Audio('https://p.scdn.co/mp3-preview/5bbdd15509b10d1b62cf5aa43500255754e2096b?cid=0b297fa8a249464ba34f5861d4140e58');
-
-          audio.play()
-
-          // Get current event info
-          console.log(d3.event);
-          
-          // Get x & y co-ordinates
-          console.log(d3.mouse(this));
-      })
-      .on("mouseout", function(){
-          
-          
-      //     d3.select(this)
-      //     .select('circle').style('stroke', '#00FFFF');
-          
-      //     d3.select(this)
-      //     .select('text').style('fill', '#00FFFF');
-      })
       
-      
-          
-
-      
-
   })
 
 function draw(chart, nodos) {
@@ -93,11 +64,10 @@ function draw(chart, nodos) {
 
   tracks
     .append('circle')
-    .attr('r', d => radio(+d.popularidad))
+    .attr('r', d => radio(d.popularidad))
     .style('stroke', '#00FFFF')
     .style('fill', 'transparent')
     .attr('stroke-width','2')
-    //.style('fill-opacity', d => opacidad(d.edad))
 
   tracks
     .append('circle')
@@ -105,58 +75,70 @@ function draw(chart, nodos) {
     .style('stroke', '#00FFFF')
     .style('fill', 'transparent')
     .attr('stroke-width','2')
-    //.style('fill-opacity', d => opacidad(d.edad))
+
+  const textPaths = tracks
+    .append('path')
+    .attr('id', (d, i) => `text-path-${i}`)
+    .attr('d', (d) => {
+      const radius = radio(d.popularidad);
+      const arc = d3.arc()
+        .innerRadius(radius - 20)
+        .outerRadius(radius - 20)
+        .startAngle(Math.PI * 2)
+        .endAngle(-Math.PI * 2)
+        .cornerRadius(10); // Optional: Add corner radius to the arc
+      return arc();
+    
+  });
 
   tracks
-    .append('svg')
-      //.attr('viewBox','20 0 2000 1100')
-      .append("path")
-        .attr("id", "path")
-        .attr("d","M -80 0 A 80 80 0 0 0 80 0")
-        .style("fill", "transparent")
-        .style("stroke", "#00FFFF");
-
-  tracks.selectAll('svg')
     .append('text')
-      .attr('text-anchor', 'middle')
-      .append("textPath")
-        .text(d => d.tema)
-        .attr("xlink:href", "#path")
-        .attr("startOffset", "50%")
-        .attr('font-family','Poppins')
-        .attr('font-size', d => {const size = radio(+d.popularidad) / 4; return size + 'px'})
-        .style('fill','#00FFFF');
-
-
-
-
-  // tracks
-    
-    
-  //   .attr("d", d => {
-  //     const diametro = radio(+d.popularidad)*2
-  //     const size = radio(+d.popularidad)
-  //     return "M" + (-size+10) + ',0 A' + (size/4) + ',' + (size/4) + " 0 0,0 " + (size-10) + ",0"
-  //   })
-  //   //.attr("d", "M-30,0 A5,5 0 0,0 30,0")
-
-
-  
-  // tracks
-    
-    
-  //   .append("textPath")
-  //   .attr("xlink:href", "#wavy")
-  //   .attr("startOffset", "50%")
-  //   .text(d => d.tema)
-  //   .style('fill','#00FFFF')
-  //   .attr('font-family','Poppins')
-  //   .attr('font-size', d => {const size = radio(+d.popularidad) / 4; return size + 'px'})
+    .append('textPath')
+    .attr('xlink:href', (d, i) => `#text-path-${i}`)
+    .attr('font-family','Poppins')
+    .attr("startOffset", "25%")
+    .style('text-anchor', 'middle')
+    .style('dominant-baseline', 'middle')
+    .style('font-size', d => {const size = radio(d.popularidad) / 4; return size + 'px'})
+    .style('fill', '#00FFFF')
+    .text(d => d.tema);
 
   tracks
     .append('audio')
     .attr('src', d => d.preview)
-  
+
+    tracks
+    .on("click", function(d) {
+
+      // Check if the element has already been clicked
+      var clicked = d3.select(this).classed("clicked");
+
+      // Update visual effects
+      d3.select(this)
+        .selectAll('circle')
+        .transition()
+        .duration(500)
+        .style('stroke', clicked ? "#00FFFF" : d => color(d.danceability))
+        
+
+      d3.select(this)
+        .select('text')
+        .select('textPath')
+        .transition()
+        .duration(500)
+        .style('fill', clicked ? "#00FFFF" : d => color(d.danceability));
+      
+      // Toggle audio play/pause
+      if (audio === null || audio.paused) {
+        audio = new Audio(d3.select(this).select('audio').attr('src'));
+        audio.play();
+      } else {
+        audio.pause();
+      }
+
+      // Toggle clicked class
+      d3.select(this).classed("clicked", !clicked);
+  });
 }
 
 function redraw() {
