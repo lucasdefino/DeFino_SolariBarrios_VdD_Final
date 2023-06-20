@@ -107,7 +107,7 @@ function draw(chart, nodos) {
     .append('audio')
     .attr('src', d => d.preview)
 
-    tracks
+  tracks
     .on("click", function(d) {
 
       // Check if the element has already been clicked
