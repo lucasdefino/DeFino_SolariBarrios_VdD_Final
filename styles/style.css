@@ -33,23 +33,23 @@ h4{
     margin-left: 15%;
 }
 
-.myBtn {
+#salto_poligono {
     position: relative;
     top: -40px;
     left: 350px;
     padding: 10px 10px;  
-    border-color: #00FFFF;
+    border-color: #d100d1;;
     border-radius: 25px;
     background-color: transparent;
-    color: #00FFFF;
+    color: #d100d1;;
     transition: 0.6s ease;
     }
 
-.myBtn:hover {
+#salto_poligono:hover {
     cursor: pointer;
     opacity: 70%;
-    background-color:#d100d1;
-    color: #00FFFF;
+    background-color:#00FFFF;
+    color: #d100d1;
 }
 
 .texto_cierre{
