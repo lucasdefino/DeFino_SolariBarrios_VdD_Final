@@ -13,7 +13,7 @@ const color = d3.scaleOrdinal()
 
 // Escalas lineales: edad y popularidad
 //const opacidad = d3.scaleLinear().range([.1, 1])
-const radio = d3.scaleRadial().range([30, 100])
+const radio = d3.scaleRadial().range([40, 100])
 
 
 /* Fetch de datos */
@@ -41,7 +41,7 @@ d3.csv('./data/top10tracksarg.csv', d3.autoType).then(data => {
       'collide',
       d3
         .forceCollide(d => radio(d.popularidad) + 5)
-        .strength(2)
+        .strength(1)
         .iterations(5),
     )
     /* Registra el observer */
@@ -63,23 +63,76 @@ function draw(chart, nodos) {
     .attr('transform', d => `translate(${[d.x, d.y]})`)
 
   tracks
+    .append('rect')
+    .attr('id','square')
+    .attr('width', d => radio(d.popularidad) * 2)
+    .attr('height', d => radio(d.popularidad) * 2)
+    .attr('x', d => -radio(d.popularidad)) // Set x position to center the square
+    .attr('y', d => -radio(d.popularidad)) // Set y position to center the square
+    .style('stroke', 'transparent')
+    .style('fill', 'transparent')
+    .attr('stroke-width', '2')
+
+  tracks
+    .append('path')
+    .attr('id','triangle')
+    .attr('d', d => {
+      const sideLength = radio(d.popularidad) * 2;
+      const halfLength = sideLength / 2;
+      return `M 0 ${-halfLength} L ${halfLength} ${halfLength} L ${-halfLength} ${halfLength} Z`;
+    })
+    .style('stroke', 'transparent')
+    .style('fill', 'transparent')
+    .attr('stroke-width', '2');
+
+  tracks
+    .append('path')
+    .attr('id','pentagon')
+    .attr('d', d => {
+      const sideLength = radio(d.popularidad) * 2;
+      const angle = (Math.PI * 2) / 5;
+      let points = '';
+      for (let i = 0; i < 5; i++) {
+        const x = Math.sin(i * angle) * sideLength / 2;
+        const y = -Math.cos(i * angle) * sideLength / 2;
+        points += `${x},${y} `;
+      }
+      return `M ${points}Z`;
+    })
+    .style('stroke', 'transparent')
+    .style('fill', 'transparent')
+    .attr('stroke-width', '2');
+
+  tracks
+    .append('path')
+    .attr('id','hexagon')
+    .attr('d', d => {
+      const sideLength = radio(d.popularidad) * 2;
+      const angle = (Math.PI * 2) / 6;
+      let points = '';
+      for (let i = 0; i < 6; i++) {
+        const x = Math.sin(i * angle) * sideLength / 2;
+        const y = -Math.cos(i * angle) * sideLength / 2;
+        points += `${x},${y} `;
+      }
+      return `M ${points}Z`;
+    })
+    .style('stroke', 'transparent')
+    .style('fill', 'transparent')
+    .attr('stroke-width', '2');
+
+
+  tracks
     .append('circle')
-    //.append('polygon')
-      // CUADRADO 
-      //.attr('points', "90,90 90,0 0,0 0,90 ")
-      // TRIANGULO 
-      //.attr('points', "0,90 90,90 45,0")
-      // PENTAGONO 
-      //.attr('points', "0,38 20,90 75,90 90,38 47,0")
-      // HEXAGONO 
-      //.attr('points', "8,20 8,70 47,90 82,70 82,20 45,0")
+    .attr('id','outer_circle')
     .attr('r', d => radio(d.popularidad))
     .style('stroke', '#00FFFF')
     .style('fill', 'transparent')
     .attr('stroke-width','2')
-
+  
   tracks
     .append('circle')
+    .attr('id','inner_circle')
     .attr('r', d => radio(+d.popularidad)/8)
     .style('stroke', '#00FFFF')
     .style('fill', 'transparent')
@@ -91,8 +144,8 @@ function draw(chart, nodos) {
     .attr('d', (d) => {
       const radius = radio(d.popularidad);
       const arc = d3.arc()
-        .innerRadius(radius - 20)
-        .outerRadius(radius - 20)
+        .innerRadius(radius - 25)
+        .outerRadius(radius - 25)
         .startAngle(Math.PI * 2)
         .endAngle(-Math.PI * 2)
         .cornerRadius(10); // Optional: Add corner radius to the arc
@@ -115,19 +168,65 @@ function draw(chart, nodos) {
   tracks
     .append('audio')
     .attr('src', d => d.preview)
-
+  
+  tracks
+    .append('input')
+    .attr('type','number')
+    .attr('value', d => d.energy)
+  
   tracks
     .on("click", function(d) {
 
       // Check if the element has already been clicked
       var clicked = d3.select(this).classed("clicked");
+      
+      let x = d3.select(this).select('input').attr('value');
+      console.log(x)
 
-      // Update visual effects
+      if (x === '1') 
+      {
+        d3.select(this)
+        .select('#triangle')
+        .transition()
+        .duration(500)
+        .style('stroke', clicked ? "transparent" : d => color(d.danceability))
+      }
+      else if (x === '2')
+      {
+        d3.select(this)
+        .select('#square')
+        .transition()
+        .duration(500)
+        .style('stroke', clicked ? "transparent" : d => color(d.danceability))
+      }
+      else if (x === '3')
+      {
+        d3.select(this)
+        .select('#pentagon')
+        .transition()
+        .duration(500)
+        .style('stroke', clicked ? "transparent" : d => color(d.danceability))
+      }
+      else if (x === '4')
+      {
+        d3.select(this)
+        .select('#hexagon')
+        .transition()
+        .duration(500)
+        .style('stroke', clicked ? "transparent" : d => color(d.danceability))
+      }      
+      
       d3.select(this)
-        .selectAll('circle')
+        .select('#inner_circle')
         .transition()
         .duration(500)
         .style('stroke', clicked ? "#00FFFF" : d => color(d.danceability))
+
+      d3.select(this)
+        .select('#outer_circle')
+        .transition()
+        .duration(500)
+        .style('stroke', clicked ? "#00FFFF" : "transparent")
         
 
       d3.select(this)
