@@ -33,25 +33,6 @@ h4{
     margin-left: 15%;
 }
 
-#salto_poligono {
-    position: relative;
-    top: -40px;
-    left: 350px;
-    padding: 10px 10px;  
-    border-color: #d100d1;;
-    border-radius: 25px;
-    background-color: transparent;
-    color: #d100d1;;
-    transition: 0.6s ease;
-    }
-
-#salto_poligono:hover {
-    cursor: pointer;
-    opacity: 70%;
-    background-color:#00FFFF;
-    color: #d100d1;
-}
-
 .texto_cierre{
     color: #00FFFF;
     font-size: 40px;
@@ -68,3 +49,76 @@ h4{
     text-align: center;
     justify-content: center;
 }
+
+#banderas{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.presentacion{
+    display: grid;
+    font-size: 86px;
+    margin: 0 270px;
+    width: 350px;
+}
+
+.argentina{
+    color: #1400FF;
+}
+
+.spain{
+    color: #D100D1;
+}
+
+#vs{
+    font-size: 70px;
+}
+
+#principal{
+    margin-top: 50px;
+    width: 100%;
+    height: 1024px;
+}
+
+.boton {
+    border-radius: 25px;
+    background-color: transparent;
+    transition: 0.6s ease;
+}
+
+.boton:hover {
+    cursor: pointer;
+    opacity: 70%;
+}
+    
+.comenzar{
+    font-size: 36px;
+    width: 250px;
+    height: 80px;
+    color: #00FFFF;
+    border-color: #00FFFF;
+    border-width: 3px;
+}
+
+.comenzar:hover{
+    background-color:#00FFFF;
+    color: #11001F;
+}
+
+.salto{
+    position: relative;
+    top: -40px;
+    left: 350px;
+    padding: 10px 10px;  
+    color: #d100d1;
+    border-color: #d100d1;
+}
+
+.salto:hover{
+    background-color:#00FFFF;
+    color: #d100d1;
+}
+
+
+
