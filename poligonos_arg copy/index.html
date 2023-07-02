@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VD | Template D3</title>
+    <link rel="stylesheet" href="./styles/reset.css">
+    <link rel="stylesheet" href="./styles/style.css">
+  </head>
+  
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+    /* TAMAÑO CAJA */
+    article {
+      position: relative;
+      padding: 0;
+      max-width: 25rem;
+      margin: 0 auto;
+    }
+
+    /* ACA ESTA LO IMPORTANTE
+    CON HEIGHT TOCO EL LARGO DEL STEP */
+    .step {
+      margin: 0 auto 2rem auto;
+      color: black;
+      background-color: gray;
+      height: 100vh;
+    }
+
+    .step:last-child {
+      margin-bottom: 0;
+    }
+
+    /* ENCABEZADO DEL STEP */
+    .step p {
+      text-align: left;
+      padding: 1rem;
+      font-size: 1.5rem;
+      background-color: #00FFFF;
+    }
+  </style>
+
+  <body>
+    
+    <div id="chart_container"></div>
+    <section id="scrolly">
+      <!-- <figure></figure> -->
+      <article>
+        <div class="step">
+          <p>STEP 1</p>
+        </div>
+        <div class="step">
+          <p>STEP 2</p>
+        </div>
+        <div class="step">
+          <p>STEP 3</p>
+        </div>
+        <div class="step">
+          <p>STEP 4</p>
+        </div>
+      </article>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6"></script>
+    <script src="https://unpkg.com/scrollama"></script>
+    <script src="./scripts/index.js"></script>
+  </body>
+</html>
