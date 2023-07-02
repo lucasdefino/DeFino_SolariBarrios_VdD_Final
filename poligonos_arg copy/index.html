@@ -24,7 +24,7 @@
     .step {
       margin: 0 auto 2rem auto;
       color: black;
-      background-color: gray;
+      /*background-color: gray;*/
       height: 100vh;
     }
 
@@ -39,13 +39,35 @@
       font-size: 1.5rem;
       background-color: #00FFFF;
     }
+
+    #scrolly svg  {
+      display: block;
+      margin: auto;
+    }
+
+    figure {
+      position: -webkit-sticky;
+      position: sticky;
+      left: 0;
+      width: 100%;
+      margin: 0;
+      -webkit-transform: translate3d(0, 0, 0);
+      -moz-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+      /* background-color: #8a8a8a; */
+      z-index: 0;
+      height: 100vh;
+      top: 0;
+    }
+
+
+
   </style>
 
   <body>
-    
-    <div id="chart_container"></div>
+
     <section id="scrolly">
-      <!-- <figure></figure> -->
+      <figure></figure>
       <article>
         <div class="step">
           <p>STEP 1</p>
@@ -63,7 +85,6 @@
     </section>
 
     <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6"></script>
     <script src="https://unpkg.com/scrollama"></script>
     <script src="./scripts/index.js"></script>
   </body>

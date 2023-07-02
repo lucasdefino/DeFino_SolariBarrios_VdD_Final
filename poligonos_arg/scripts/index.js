@@ -49,8 +49,6 @@ d3.csv('./data/top10tracksarg.csv', d3.autoType).then(data => {
     
     /* Renderiza los círculos */
     draw(chart, nodos)
-
-    d3.selectAll(".tracks")
       
   })
 
