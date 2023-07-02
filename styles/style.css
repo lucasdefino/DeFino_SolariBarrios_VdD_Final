@@ -4,14 +4,9 @@ body {
     color: #00FFFF;
 }
 
-h1{
-    color: #00FFFF;
-    font-size: 60px;
-    font-weight: 500;
-}
+
 
 h2{
-    color: #00FFFF;
     font-size: 40px;
     font-weight: 500;
     margin-left: 15%;
@@ -19,7 +14,6 @@ h2{
 
 h3{
     margin-top: -3%;
-    color: #00FFFF;
     font-size: 40px;
     font-weight: 500;
     margin-left: 25%;
@@ -27,7 +21,6 @@ h3{
 
 h4{
     margin-top: -3%;
-    color: #00FFFF;
     font-size: 30px;
     font-weight: 500;
     margin-left: 15%;
@@ -50,37 +43,6 @@ h4{
     justify-content: center;
 }
 
-#banderas{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.presentacion{
-    display: grid;
-    font-size: 86px;
-    margin: 0 270px;
-    width: 350px;
-}
-
-.argentina{
-    color: #1400FF;
-}
-
-.spain{
-    color: #D100D1;
-}
-
-#vs{
-    font-size: 70px;
-}
-
-#principal{
-    margin-top: 50px;
-    width: 100%;
-    height: 1024px;
-}
-
 .boton {
     border-radius: 25px;
     background-color: transparent;
@@ -90,20 +52,6 @@ h4{
 .boton:hover {
     cursor: pointer;
     opacity: 70%;
-}
-    
-.comenzar{
-    font-size: 36px;
-    width: 250px;
-    height: 80px;
-    color: #00FFFF;
-    border-color: #00FFFF;
-    border-width: 3px;
-}
-
-.comenzar:hover{
-    background-color:#00FFFF;
-    color: #11001F;
 }
 
 .salto{
@@ -119,6 +67,11 @@ h4{
     background-color:#00FFFF;
     color: #d100d1;
 }
+
+
+
+
+/*//////////////////////////// Formato de Scrolly //////////////////////////////*/
 
 /* TAMAÑO CAJA */
 article {
@@ -169,3 +122,55 @@ height: 100vh;
 top: 0;
 }
 
+/*////////////////////////////// Formato de inicio ////////////////////////////////////*/
+
+h1{
+    font-size: 40px;
+    font-weight: 500;
+}
+
+#banderas{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.presentacion{
+    display: grid;
+    text-align: center;
+    font-size: 40px;
+    margin: 0 50px;
+    width: 350px;
+}
+
+.argentina{
+    color: #1400FF;
+}
+
+.spain{
+    color: #D100D1;
+}
+
+#vs{
+    font-size: 35px;
+}
+
+#principal{
+    margin-top: 40px;
+    width: 100%;
+    height: 1024px;
+}
+
+.comenzar{
+    font-size: 20px;
+    width: 150px;
+    height: 45px;
+    color: #00FFFF;
+    border-color: #00FFFF;
+    border-width: 3px;
+}
+
+.comenzar:hover{
+    background-color:#00FFFF;
+    color: #11001F;
+}
