@@ -1,7 +1,7 @@
 d3.csv('top10tracksargyesp.csv', d3.autoType).then(data => {
   
   let maspopulares = data.filter(
-    d => d.popularidad >= 90,
+    d => d.popularidad >= 92,
   )
 
   let chart = Plot.plot({

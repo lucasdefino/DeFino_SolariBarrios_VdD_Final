@@ -1,9 +1,8 @@
 d3.csv('top10tracksargyesp.csv', d3.autoType).then(data => {
   
-
   let chart = Plot.plot({
     width: 500,
-    height: 500,
+    height: 450,
     marginLeft: 50,
     marginRight: -40,
     marginTop: 40,

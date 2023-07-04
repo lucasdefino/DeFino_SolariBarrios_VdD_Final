@@ -12,57 +12,29 @@ let hChart = wChart * 0.5;
 let dataChart = [];
 let $step;
 
-// initialize the scrollama
+
 let scroller = scrollama();
 
- // fetch data
 init();
 
 
 function handleStepExit(response) {
-  // if ($step) {
   console.count("classed");
   d3.select(response.element).classed("is-active", false);
-  // }
 }
 
-// scrollama event handlers
 function handleStepEnter(response) {
-  // console.log(response);
   $step = d3.select(response.element);
-
-  // add color to current step only
-  // if ($step) {
   $step.classed("is-active", true);
   console.count("classed");
-  // }
-
   $step.style("background", "transparent");
 
-  // create new chart
+  // create chart
   const key = $step.attr("data-step");
-
-  // console.log("response.element", response.element);
-  // console.log("$step", $step);
-  // console.log("key", key);
-
   createChart(key);
-
-
 }
 
-// function handleStepProgress(response) {
-//   // console.log(response);
-//   // $figure.style("opacity", response.progress);
-//   // $step = d3.select(response.element);
-//   // console.log($step.attr("data-step"));
-//   $step.select(".progress").text(d3.format(".1%")(response.progress));
-// }
-
 function init() {
-  // 1. setup the scroller passing options
-  // 		this will also initialize trigger observations
-  // 2. bind scrollama event handlers (this can be chained like below)
   scroller
     .setup({
       step: "#scrolly article .step",
@@ -72,7 +44,6 @@ function init() {
     })
     .onStepEnter(handleStepEnter)
     .onStepExit(handleStepExit)
-    //.onStepProgress(handleStepProgress);
 }
 
 function createChart(key) {
