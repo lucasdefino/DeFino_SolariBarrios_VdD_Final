@@ -1,14 +1,7 @@
-const width = 1300
-const height = 700
-const margin = 100
-var audio = null
-
 // SCROLLY
 let main = d3.select("main");
 let scrolly = main.select("#scrolly");
 let $figure = scrolly.select("figure");
-let wChart = 1200
-let hChart = wChart * 0.5;
 let dataChart = [];
 let $step;
 
@@ -38,7 +31,7 @@ function init() {
   scroller
     .setup({
       step: "#scrolly article .step",
-      offset: 0.33,
+      offset: 0.1,
       debug: false,
       progress: true,
     })
