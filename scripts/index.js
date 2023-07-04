@@ -31,7 +31,7 @@ function init() {
   scroller
     .setup({
       step: "#scrolly article .step",
-      offset: 0.1,
+      offset: 0.33,
       debug: false,
       progress: true,
     })
@@ -40,11 +40,16 @@ function init() {
 }
 
 function createChart(key) {
-
-  d3.select("#scrolly figure iframe").remove();
-  d3.select("#scrolly figure").append('iframe')
-  .attr('src','../poligonos_arg/index.html')
+  d3.select("#scrolly figure img").remove();
+  // d3.select("#scrolly figure").append('iframe')
+  // .attr('src','../poligonos_arg/index.html')
+  // .attr('width','100%')
+  // .attr('height','700')
+  // .attr('frameborder','0');
+  d3.select("#scrolly figure").append('img')
+  .attr('src',key)
   .attr('width','100%')
-  .attr('height','700')
+  .attr('height','100%')
   .attr('frameborder','0');
+
 }

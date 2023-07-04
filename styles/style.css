@@ -95,6 +95,7 @@ height: 100vh;
 
 .step:last-child {
 margin-bottom: 0;
+height: 10vh;
 }
 
 /* ENCABEZADO DEL STEP */
