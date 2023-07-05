@@ -61,20 +61,6 @@ h5{
     opacity: 70%;
 }
 
-.salto{
-    position: relative;
-    top: -40px;
-    left: 350px;
-    padding: 10px 10px;  
-    color: #d100d1;
-    border-color: #d100d1;
-}
-
-.salto:hover{
-    border-color: #00FFFF;
-    color: #00FFFF;
-}
-
 /*//////////////////////////// Formato de Scrolly //////////////////////////////*/
 
 /* TAMAÑO CAJA */
@@ -90,7 +76,7 @@ CON HEIGHT TOCO EL LARGO DEL STEP */
 .step {
 margin: 0 auto 2rem auto;
 color: 00FFFF;
-height: 100vh;
+height: 800px;
 }
 
 .step:last-child {
@@ -103,6 +89,7 @@ height: 10vh;
 text-align: left;
 padding: 1rem;
 font-size: 1.2rem;
+font-weight: 300;
 background-color: #6A00F4;
 opacity: 0.8;
 }
@@ -120,15 +107,13 @@ width: 100%;
 margin: 0;
 -webkit-transform: translate3d(0, 0, 0);
 -moz-transform: translate3d(0, 0, 0);
-transform: translate3d(0, 0, 0);
+transform: translate3d(0, -50px, 0);
 z-index: 0;
 height: 100vh;
 top: 0;
 }
 
-h1scrolly {
-    background-color: transparent;
-}
+
 
 /*////////////////////////////// Formato de inicio ////////////////////////////////////*/
 
@@ -181,4 +166,31 @@ h1{
 .comenzar:hover{
     background-color:#00FFFF;
     color: #11001F;
+}
+
+/* /////////////////////////////// Formato poligonos ///////////////////// */
+
+.salto{
+    position: relative;
+    font-size: 18px;
+    width: 100px;
+    height: 45px;
+    border-width: 3px;
+    color: #d100d1;
+    border-color: #d100d1;
+}
+
+.salto:hover{
+    background-color: #d100d1;
+    color: #11001F;
+}
+
+
+
+#containerPoligonos{
+    display: flex;
+}
+
+#poligonos{
+    z-index: 0;
 }

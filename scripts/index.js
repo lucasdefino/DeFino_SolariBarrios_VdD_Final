@@ -49,7 +49,7 @@ function createChart(key) {
   d3.select("#scrolly figure").append('img')
   .attr('src',key)
   .attr('width','100%')
-  .attr('height','100%')
+  .attr('height','700px')
   .attr('frameborder','0');
 
 }

@@ -106,12 +106,12 @@ CON HEIGHT TOCO EL LARGO DEL STEP */
   }
 }
 
-/* #scrolly svg  {
+ #scrolly svg  {
   display: block;
   margin: auto;
 } */
 
-/* figure {
+ figure {
   position: -webkit-sticky;
   position: sticky;
   left: 0;
@@ -138,12 +138,12 @@ figure p {
   font-size: 8rem;
   font-weight: 900;
   color: #fff;
-} */
+}
 
-/* Plot
+
 g[aria-label="text"] text {
   font-weight: bold;
   font-size: 9px;
   text-shadow: -2px -2px 0px whitesmoke, -2px -1px 0px whitesmoke, -2px 0px 0px whitesmoke, -2px 1px 0px whitesmoke, -2px 2px 0px whitesmoke, -1px -2px 0px whitesmoke, -1px -1px 0px whitesmoke, -1px 0px 0px whitesmoke, -1px 1px 0px whitesmoke, -1px 2px 0px whitesmoke, 0px -2px 0px whitesmoke, 0px -1px 0px whitesmoke, 0px 1px 0px whitesmoke, 0px 2px 0px whitesmoke, 1px -2px 0px whitesmoke, 1px -1px 0px whitesmoke, 1px 0px 0px whitesmoke, 1px 1px 0px whitesmoke, 1px 2px 0px whitesmoke, 2px -2px 0px whitesmoke, 2px -1px 0px whitesmoke, 2px 0px 0px whitesmoke, 2px 1px 0px whitesmoke, 2px 2px 0px whitesmoke;
-} */
+}
 
