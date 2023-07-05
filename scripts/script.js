@@ -28,6 +28,6 @@ function salto() {
 
 function scrollToSection() {
     var sectionElement = document.getElementById("primerStep");
-    var offset = sectionElement.offsetTop - 100; // Adjust the offset value as desired
+    var offset = sectionElement.offsetTop - 100;
     window.scrollTo({ top: offset, behavior: "smooth" });
   }

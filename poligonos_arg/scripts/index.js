@@ -3,29 +3,18 @@ const height = 700
 const margin = 100
 var audio = null
 
-
-
-//hola
-// Puesto: escala categorica
 const color = d3.scaleOrdinal()
 .domain(['1', '2', '3', '4'])
 .range(['#1400FF', '#6A00F4', '#D100D1', '#F20089'])
 
-// Escalas lineales: edad y popularidad
-//const opacidad = d3.scaleLinear().range([.1, 1])
 const radio = d3.scaleRadial().range([40, 100])
 
-
-/* Fetch de datos */
 d3.csv('./data/top10tracksarg.csv', d3.autoType).then(data => {
 
   const nodos = data
 
-  
   radio.domain(d3.extent(nodos, d => d.popularidad))
   
-
-  /* DOM (cajita) */
   const svg = d3.select('body').append('svg').attr('width', width).attr('height', height)
   const chart = svg
     .append('g')
@@ -44,10 +33,9 @@ d3.csv('./data/top10tracksarg.csv', d3.autoType).then(data => {
         .strength(1)
         .iterations(5),
     )
-    /* Registra el observer */
+
     sim.on('tick', redraw)
     
-    /* Renderiza los círculos */
     draw(chart, nodos)
       
   })
@@ -65,8 +53,8 @@ function draw(chart, nodos) {
     .attr('id','square')
     .attr('width', d => radio(d.popularidad) * 2)
     .attr('height', d => radio(d.popularidad) * 2)
-    .attr('x', d => -radio(d.popularidad)) // Set x position to center the square
-    .attr('y', d => -radio(d.popularidad)) // Set y position to center the square
+    .attr('x', d => -radio(d.popularidad))
+    .attr('y', d => -radio(d.popularidad)) 
     .style('stroke', 'transparent')
     .style('fill', 'transparent')
     .attr('stroke-width', '2')

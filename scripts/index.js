@@ -22,7 +22,6 @@ function handleStepEnter(response) {
   console.count("classed");
   $step.style("background", "transparent");
 
-  // create chart
   const key = $step.attr("data-step");
   createChart(key);
 }
@@ -41,11 +40,6 @@ function init() {
 
 function createChart(key) {
   d3.select("#scrolly figure img").remove();
-  // d3.select("#scrolly figure").append('iframe')
-  // .attr('src','../poligonos_arg/index.html')
-  // .attr('width','100%')
-  // .attr('height','700')
-  // .attr('frameborder','0');
   d3.select("#scrolly figure").append('img')
   .attr('src',key)
   .attr('width','100%')
