@@ -75,7 +75,7 @@ article {
 CON HEIGHT TOCO EL LARGO DEL STEP */
 .step {
 margin: 0 auto 2rem auto;
-color: 00FFFF;
+color: #00FFFF;
 height: 800px;
 }
 
@@ -178,6 +178,8 @@ h1{
     border-width: 3px;
     color: #d100d1;
     border-color: #d100d1;
+    z-index: 1;
+    margin: 0 500px;
 }
 
 .salto:hover{
@@ -185,12 +187,31 @@ h1{
     color: #11001F;
 }
 
-
-
 #containerPoligonos{
     display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -250px;
 }
 
-#poligonos{
-    z-index: 0;
+#referencias{
+    margin-top: -200px;
+    margin: 0 350px;
+}
+
+.dropdown option{
+    font-size: 40px;
+    color: #11001F;
+    background-color: #D100D1;
+    border-radius: 25%;
+}
+
+.dropdown select{
+    width: 200px;
+    color: #d100d1;
+    font-family: 'Poppins';
+    font-weight: 500;
+    font-size: 40px;
+    border: 0;
+    background-color: transparent;
 }
